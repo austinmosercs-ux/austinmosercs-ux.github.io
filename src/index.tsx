@@ -9,7 +9,7 @@ if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <React.StrictMode>
-      <BrowserRouter basename="/my-portfolio">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Portfolio />} />
           <Route path="*" element={<NotFound />} />

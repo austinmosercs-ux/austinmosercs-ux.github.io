@@ -12,7 +12,8 @@
     "portfolio",
     "typescript"
   ],
-  "author": "",
+  "author": "Austin Moser",
+  "homepage": "https://github.com/austinmosercs-ux",
   "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.11.0",

@@ -2,6 +2,8 @@
 
 A modern portfolio website built with **Material UI (MUI)**, **React**, and **TypeScript**.
 
+GitHub: [austinmosercs-ux](https://github.com/austinmosercs-ux)
+
 ## Features
 
 - ✨ Built with TypeScript & React
@@ -69,11 +71,10 @@ Edit `src/portfolio.tsx` and add projects to the `projects` state:
 ```typescript
 {
   id: 'project-2',
-  title: 'Your Project Title',
-  description: 'Project description',
-  technologies: ['TypeScript', 'React', 'MUI'],
-  link: 'https://example.com',
-  github: 'https://github.com/username/project',
+  title: 'Cloud AI Sentiment Analysis',
+  description: 'A sentiment analysis project using cloud and AI concepts.',
+  technologies: ['HTML', 'AI', 'Cloud'],
+  github: 'https://github.com/austinmosercs-ux/cloud-ai-sentiment-analysis',
 }
 ```
 

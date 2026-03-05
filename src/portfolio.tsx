@@ -201,12 +201,27 @@ export const Portfolio: React.FC = () => {
   const [projects] = useState<Project[]>([
     {
       id: 'project-1',
-      title: 'Project Title',
+      title: 'Cloud AI Sentiment Analysis',
       description:
-        'Add your project description here. Describe what it does, the problems it solves, and what makes it interesting.',
-      technologies: ['TypeScript', 'React', 'Node.js'],
-      link: 'https://example.com',
-      github: 'https://github.com/username/project',
+        'Fully serverless AWS application that analyzes customer review sentiment using Amazon Comprehend. Built with API Gateway, AWS Lambda (Python), DynamoDB for storage, and an S3-hosted frontend. Final project for Cloud Computing.',
+      technologies: ['Python', 'AWS Lambda', 'Amazon Comprehend', 'DynamoDB', 'API Gateway', 'S3'],
+      github: 'https://github.com/austinmosercs-ux/cloud-ai-sentiment-analysis',
+    },
+    {
+      id: 'project-2',
+      title: 'Facial Landmark Gender Classifier',
+      description:
+        'ML project that classifies gender from 22-point facial landmark data using a KNN classifier. Extracts 7 geometric feature ratios (eye distance, nose width, lip size, etc.) with manual Euclidean distance calculations. Built for CSCI 405 / AI coursework.',
+      technologies: ['Python', 'scikit-learn', 'KNN', 'Computer Vision'],
+      github: 'https://github.com/austinmosercs-ux/FaceRecognition',
+    },
+    {
+      id: 'project-3',
+      title: 'Animated Book',
+      description:
+        'A front-end project featuring an animated cover of "One Fish Two Fish Red Fish Blue Fish" by Dr. Seuss. Built purely with HTML and CSS using keyframe animations and transform properties to bring the book cover to life in the browser.',
+      technologies: ['HTML', 'CSS', 'Animation'],
+      github: 'https://github.com/austinmosercs-ux/AnimatedBookProject',
     },
   ]);
 
@@ -420,7 +435,7 @@ export const Portfolio: React.FC = () => {
                 >
                   <Box
                     component="img"
-                    src="https://via.placeholder.com/200/060810/06b6d4?text=You"
+                    src="https://avatars.githubusercontent.com/u/257862909?v=4"
                     alt="Profile"
                     sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                   />
@@ -1089,7 +1104,7 @@ export const Portfolio: React.FC = () => {
             </Typography>
             <Stack direction="row" spacing={0.5}>
               <IconButton
-                href="https://github.com/username"
+                href="https://github.com/austinmosercs-ux"
                 target="_blank"
                 rel="noopener noreferrer"
                 size="small"

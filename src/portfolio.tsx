@@ -134,6 +134,7 @@ interface Project {
   technologies: string[];
   link?: string;
   github?: string;
+  live?: string;
 }
 
 interface Experience {
@@ -141,6 +142,7 @@ interface Experience {
   position: string;
   duration: string;
   description: string;
+  skills?: string[];
 }
 
 interface Certification {
@@ -222,6 +224,7 @@ export const Portfolio: React.FC = () => {
         'A project from Interactive Design II (ART 477) featuring an animated cover of "One Fish Two Fish Red Fish Blue Fish" by Dr. Seuss. Built purely with HTML and CSS using keyframe animations and transform properties to bring the book cover to life in the browser.',
       technologies: ['HTML', 'CSS', 'Animation'],
       github: 'https://github.com/austinmosercs-ux/AnimatedBookProject',
+      live: 'https://austinmosercs-ux.github.io/AnimatedBookProject/',
     },
   ]);
 
@@ -231,7 +234,8 @@ export const Portfolio: React.FC = () => {
       position: 'Mobile Development Intern',
       duration: 'Mar 2025 — Present',
       description:
-        'Selected to join UW-Parkside\'s App Factory internship program, a competitive school-sponsored initiative where students build real mobile applications for clients. Developed Android apps using Jetpack Compose and Kotlin, and iOS apps using Xcode and Swift. Participated in weekly agile-style standups to track project progress and collaborate with the team.',
+        'Joined UW-Parkside\'s App Factory, a school-sponsored program where students build mobile apps and websites for real clients. Developed Android apps using Jetpack Compose and Kotlin, and iOS apps using Xcode and Swift, with additional involvement in web development. Participated in weekly team meetings to share project updates and follow progress across other teams.',
+      skills: ['Kotlin', 'Jetpack Compose', 'Swift', 'Xcode', 'Android Studio'],
     },
     {
       company: 'University of Wisconsin — Parkside',
@@ -239,6 +243,7 @@ export const Portfolio: React.FC = () => {
       duration: 'Sept 2024 — May 2025',
       description:
         'Supported students in grasping computer science course material. Guided students in completing and comprehending weekly programming labs. Provided one-on-one assistance with homework and exam preparation.',
+      skills: ['Java', 'Python', 'Data Structures', 'Algorithms'],
     },
   ]);
 
@@ -696,7 +701,7 @@ export const Portfolio: React.FC = () => {
                       borderTop: '2px solid rgba(6,182,212,0.35)',
                     }}
                   >
-                    <CardContent sx={{ flexGrow: 1, p: 3 }}>
+                    <CardContent sx={{ flexGrow: 1, p: 3, display: 'flex', flexDirection: 'column' }}>
                       <Typography variant="h6" gutterBottom sx={{ fontSize: '1rem' }}>
                         {project.title}
                       </Typography>
@@ -719,24 +724,7 @@ export const Portfolio: React.FC = () => {
                           />
                         ))}
                       </Stack>
-                      <Stack direction="row" spacing={1}>
-                        {project.link && (
-                          <Button
-                            size="small"
-                            startIcon={<Language sx={{ fontSize: 15 }} />}
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            sx={{
-                              color: '#06b6d4',
-                              fontSize: '0.78rem',
-                              p: '4px 8px',
-                              '&:hover': { background: 'rgba(6,182,212,0.08)' },
-                            }}
-                          >
-                            Live Demo
-                          </Button>
-                        )}
+                      <Stack direction="row" spacing={1} sx={{ mt: 'auto' }}>
                         {project.github && (
                           <Button
                             size="small"
@@ -754,6 +742,23 @@ export const Portfolio: React.FC = () => {
                             Source
                           </Button>
                         )}
+                        {(project.live || project.link) && (
+                          <Button
+                            size="small"
+                            startIcon={<Language sx={{ fontSize: 15 }} />}
+                            href={(project.live || project.link) as string}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            sx={{
+                              color: '#06b6d4',
+                              fontSize: '0.78rem',
+                              p: '4px 8px',
+                              '&:hover': { background: 'rgba(6,182,212,0.08)' },
+                            }}
+                          >
+                            Live Demo
+                          </Button>
+                        )}
                       </Stack>
                     </CardContent>
                   </Card>
@@ -768,7 +773,7 @@ export const Portfolio: React.FC = () => {
         {/* ── CERTIFICATIONS ───────────────────────────────────────────────── */}
         <Box id="certifications" sx={{ py: { xs: 8, md: 12 } }}>
           <Container maxWidth="lg">
-            <SectionLabel num="04" label="Certifications" accent="#f59e0b" />
+            <SectionLabel num="04" label="Certifications" />
             <Typography variant="h2" sx={{ mb: 6 }}>
               Credentials
             </Typography>
@@ -780,13 +785,13 @@ export const Portfolio: React.FC = () => {
                       height: '100%',
                       background: 'rgba(10,14,26,0.7)',
                       backdropFilter: 'blur(16px)',
-                      border: '1px solid rgba(245,158,11,0.14)',
+                      border: '1px solid rgba(6,182,212,0.14)',
                       boxShadow: '0 2px 16px rgba(0,0,0,0.5)',
                       transition: 'all 0.35s cubic-bezier(0.4,0,0.2,1)',
                       '&:hover': {
-                        border: '1px solid rgba(245,158,11,0.35)',
+                        border: '1px solid rgba(6,182,212,0.35)',
                         transform: 'translateY(-6px)',
-                        boxShadow: '0 16px 48px rgba(245,158,11,0.07)',
+                        boxShadow: '0 16px 48px rgba(6,182,212,0.07)',
                       },
                     }}
                   >
@@ -797,15 +802,15 @@ export const Portfolio: React.FC = () => {
                             width: 46,
                             height: 46,
                             borderRadius: 1.5,
-                            background: 'rgba(245,158,11,0.1)',
-                            border: '1px solid rgba(245,158,11,0.22)',
+                            background: 'rgba(6,182,212,0.08)',
+                            border: '1px solid rgba(6,182,212,0.22)',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
                             flexShrink: 0,
                           }}
                         >
-                          <EmojiEvents sx={{ fontSize: 22, color: '#f59e0b' }} />
+                          <EmojiEvents sx={{ fontSize: 22, color: '#06b6d4' }} />
                         </Box>
                         <Box sx={{ flexGrow: 1, minWidth: 0 }}>
                           <Stack direction="row" justifyContent="space-between" alignItems="flex-start" spacing={1}>
@@ -815,7 +820,7 @@ export const Portfolio: React.FC = () => {
                             >
                               {cert.title}
                             </Typography>
-                            <Typography sx={{ fontSize: '0.7rem', color: '#f59e0b', fontWeight: 600, whiteSpace: 'nowrap', flexShrink: 0 }}>
+                            <Typography sx={{ fontSize: '0.7rem', color: '#06b6d4', fontWeight: 600, whiteSpace: 'nowrap', flexShrink: 0 }}>
                               {cert.dateEarned}
                             </Typography>
                           </Stack>
@@ -867,9 +872,27 @@ export const Portfolio: React.FC = () => {
                     <Typography variant="body2" sx={{ fontWeight: 600, color: '#94a3b8', fontSize: '0.85rem', mb: 1.5 }}>
                       {exp.company}
                     </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.75 }}>
+                    <Typography variant="body2" sx={{ color: 'text.secondary', lineHeight: 1.75, mb: exp.skills ? 2 : 0 }}>
                       {exp.description}
                     </Typography>
+                    {exp.skills && (
+                      <Stack direction="row" flexWrap="wrap" sx={{ gap: '6px' }}>
+                        {exp.skills.map((skill) => (
+                          <Chip
+                            key={skill}
+                            label={skill}
+                            size="small"
+                            variant="outlined"
+                            sx={{
+                              borderColor: 'rgba(6,182,212,0.25)',
+                              color: '#06b6d4',
+                              background: 'rgba(6,182,212,0.05)',
+                              fontSize: '0.66rem',
+                            }}
+                          />
+                        ))}
+                      </Stack>
+                    )}
                   </CardContent>
                 </Card>
               ))}
@@ -1062,7 +1085,8 @@ export const Portfolio: React.FC = () => {
               sx={{
                 fontFamily: '"Syne", sans-serif',
                 fontWeight: 800,
-                fontSize: '1rem',
+                fontSize: '1.1rem',
+                letterSpacing: '-0.02em',
                 background: 'linear-gradient(90deg, #06b6d4, #10b981)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -1071,7 +1095,7 @@ export const Portfolio: React.FC = () => {
               AM
             </Typography>
             <Typography variant="body2" sx={{ color: '#475569', fontSize: '0.8rem' }}>
-              © 2025 Austin Moser. Crafted with care.
+              © 2026 Austin Moser. All Rights Reserved.
             </Typography>
             <Stack direction="row" spacing={0.5}>
               <IconButton
